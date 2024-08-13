@@ -19,10 +19,9 @@ class IntersectionOverUnion(Metric):
         n_classes: int,
         ignore_index: Optional[int] = None,
         absent_score: float = 0.0,
-        reduction: str = 'none',
-        compute_on_step: bool = False,
+        reduction: str = 'none'
     ):
-        super().__init__(compute_on_step=compute_on_step)
+        super().__init__()
 
         self.n_classes = n_classes
         self.ignore_index = ignore_index
@@ -86,10 +85,9 @@ class PanopticMetric(Metric):
         self,
         n_classes: int,
         temporally_consistent: bool = True,
-        vehicles_id: int = 1,
-        compute_on_step: bool = False,
+        vehicles_id: int = 1
     ):
-        super().__init__(compute_on_step=compute_on_step)
+        super().__init__()
 
         self.n_classes = n_classes
         self.temporally_consistent = temporally_consistent
@@ -253,10 +251,9 @@ class PlanningMetric(Metric):
     def __init__(
         self,
         cfg,
-        n_future=4,
-        compute_on_step: bool = False,
+        n_future=4
     ):
-        super().__init__(compute_on_step=compute_on_step)
+        super().__init__()
         
         # Generate grid dx, bx parameters
         dx, bx, _ = gen_dx_bx(cfg.LIFT.X_BOUND, cfg.LIFT.Y_BOUND, cfg.LIFT.Z_BOUND)
